@@ -46,3 +46,14 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
+# svelte-vite-test
+
+ yarn create @vitejs/app svelte-vite-test --template svelte-ts
+ 
+ cd svelte-vite-test
+
+ <!-- mv -i svelte.config.{js,mjs} Node v16以降-->
+ 
+ yarn
+ yarn run dev
+ 
