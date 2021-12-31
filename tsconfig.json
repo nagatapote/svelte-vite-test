@@ -2,6 +2,12 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
+    /**
+    esbuild は型情報なしにトランスパイルを行うだけなので、
+    const enum や暗黙の型のみのインポートなどの特定の機能をサポートしていない
+    隔離されたトランスパイルで動作しない機能を TS が警告
+    */
+    "isolatedModules": true,
     "useDefineForClassFields": true,
     "module": "esnext",
     "resolveJsonModule": true,
