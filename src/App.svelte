@@ -10,7 +10,7 @@
   } as const;
 
   let title = '';
-  let priority: number = 2;
+  let priority = 2;
 
   $: disabledCreateButton = title === '';
   $: sortedTodoList = $todoListStore.sort((item1, item2) => item1.priority - item2.priority);
