@@ -1,15 +1,27 @@
 # svelte-vite-test
 
- yarn create @vitejs/app svelte-vite-test --template svelte-ts
+ `$ yarn create @vitejs/app svelte-vite-test --template svelte-ts`
  
- cd svelte-vite-test
+ `$ cd svelte-vite-test`
 
  <!-- mv -i svelte.config.{js,mjs} Node v16以降-->
  
- yarn
+ `$ yarn`
  
- yarn run dev
+ `$ yarn run dev`
+
+ # eslint & prettier
+
+ `$ yarn format`
+
+ `$ yarn lint:fix`
+
+ ### 参考
+ - [todo store](https://qiita.com/nabekou29/items/dba59de91812a500060b)
  
+- [eslint & prettier導入](https://qiita.com/azukisiromochi/items/63dce6c797f715e90fab)
+
+- [ts svelte eslint](https://qiita.com/nosa67/items/357ecf1ef16ae8d71896)
 
 # Svelte + TS + Vite
 
