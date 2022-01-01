@@ -5,12 +5,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "format": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^2.0.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.5.1",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
