@@ -17,7 +17,9 @@
  `$ yarn lint:fix`
 
  ### 参考
- - [todo store](https://qiita.com/nabekou29/items/dba59de91812a500060b)
+- node v14.17.3
+
+- [todo store](https://qiita.com/nabekou29/items/dba59de91812a500060b)
  
 - [eslint & prettier導入](https://qiita.com/azukisiromochi/items/63dce6c797f715e90fab)
 
