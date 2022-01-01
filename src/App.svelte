@@ -28,48 +28,51 @@
   <h1>Hello world!</h1>
 </main>
 
-<div>
-  <div>
-    <form>
-      <div>
-        <label>
-          タイトル
-          <input bind:value="{title}" />
-        </label>
-      </div>
-      <div>
-        <label for="priority">優先度</label>
-        <select bind:value="{priority}">
-          {#each Object.entries(priorityNames) as [value, label]}
-            <option value="{Number(value)}">{label}</option>
+<div class="todo-list-wrapper">
+  <h2>Todo List</h2>
+  <div class="todo-list">
+    <div>
+      <form>
+        <div>
+          <label>
+            タイトル
+            <input bind:value="{title}" />
+          </label>
+        </div>
+        <div>
+          <label for="priority">優先度</label>
+          <select bind:value="{priority}">
+            {#each Object.entries(priorityNames) as [value, label]}
+              <option value="{Number(value)}">{label}</option>
+            {/each}
+          </select>
+        </div>
+        <button disabled="{disabledCreateButton}" on:click="{handleClickCreateButton}">作成</button>
+      </form>
+    </div>
+    <div>
+      {#if $todoListStore.length === 0}
+        <div>アイテムを作成してください。</div>
+      {:else}
+        <div>件数: {$todoListStore.length}</div>
+        <ul>
+          {#each sortedTodoList as todoItem (todoItem.id)}
+            <li class="todo-list-item" transition:slide>
+              <span
+                class="badge"
+                class:badge-danger="{todoItem.priority === Priorities.High}"
+                class:badge-warning="{todoItem.priority === Priorities.Mid}"
+                class:badge-success="{todoItem.priority === Priorities.Low}"
+              >
+                {priorityNames[todoItem.priority]}
+              </span>
+              {todoItem.title}
+              <button on:click="{() => todoListStore.completeItem(todoItem.id)}">X</button>
+            </li>
           {/each}
-        </select>
-      </div>
-      <button disabled="{disabledCreateButton}" on:click="{handleClickCreateButton}">作成</button>
-    </form>
-  </div>
-  <div>
-    {#if $todoListStore.length === 0}
-      <div>アイテムを作成してください。</div>
-    {:else}
-      <div>件数: {$todoListStore.length}</div>
-      <ul>
-        {#each sortedTodoList as todoItem (todoItem.id)}
-          <li class="todo-list-item" transition:slide>
-            <span
-              class="badge"
-              class:badge-danger="{todoItem.priority === Priorities.High}"
-              class:badge-warning="{todoItem.priority === Priorities.Mid}"
-              class:badge-success="{todoItem.priority === Priorities.Low}"
-            >
-              {priorityNames[todoItem.priority]}
-            </span>
-            {todoItem.title}
-            <button on:click="{() => todoListStore.completeItem(todoItem.id)}">X</button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
+        </ul>
+      {/if}
+    </div>
   </div>
 </div>
 
@@ -98,6 +101,15 @@
     line-height: 1.1;
     margin: 2rem auto;
     max-width: 14rem;
+  }
+
+  .todo-list-wrapper {
+    text-align: center;
+  }
+
+  .todo-list {
+    text-align: left;
+    display: inline-block;
   }
 
   .todo-list-item {
